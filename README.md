@@ -1,8 +1,8 @@
 # Todo react
 
-A todo list built with React, Tailwindcss and Vite.
+A todo list built with React, Tailwind and Vite
 
-[Live Preview]()
+[Live Preview](https://todo-vs.netlify.app)
 
 ### Features
 
@@ -10,8 +10,9 @@ A todo list built with React, Tailwindcss and Vite.
 
 ## Built with:
 
-[![Stack](https://skills.thijs.gg/icons?i=react,tailwind,vite,netlify)](https://github.com/vsilagy)
+![Stack](https://skills.thijs.gg/icons?i=react,tailwind,vite,netlify)
 
 - [React](https://reactjs.org/)
 - [Tailwind](https://tailwindcss.com/)
 - [Vite](https://vitejs.dev/)
+- [Netlify](https://www.netlify.com/)
