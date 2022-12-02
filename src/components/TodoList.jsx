@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import close from '../assets/icon-cross.svg';
 
-const TodoList = ({ todos, setTodos, input, setInput }) => {
+const TodoList = ({ todos, setTodos }) => {
 	const [filter, setFilter] = useState('all');
 	const handleDelete = (id) => {
 		setTodos([...todos].filter((todo) => todo.id !== id));
@@ -41,7 +41,7 @@ const TodoList = ({ todos, setTodos, input, setInput }) => {
 	const remainingTodos = () => {
 		return todos.filter((todo) => !todo.isComplete).length;
 	};
-	const completedTodos = () => {
+	const handleClear = () => {
 		const completed = todos.filter((todo) => !todo.isComplete);
 		setTodos(completed);
 	};
@@ -67,7 +67,6 @@ const TodoList = ({ todos, setTodos, input, setInput }) => {
 									type="checkbox"
 									checked={todo.isComplete ? true : false}
 									onChange={() => handleComplete(todo.id)}
-									className=" focus:outline-none"
 								/>
 								{!todo.isEditing ? (
 									<p
@@ -140,7 +139,7 @@ const TodoList = ({ todos, setTodos, input, setInput }) => {
 					</button>
 				</div>
 				<button
-					onClick={() => completedTodos()}
+					onClick={() => handleClear()}
 					className="active:text-brightBlue active:font-bold">
 					Clear Completed
 				</button>

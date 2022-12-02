@@ -14,12 +14,18 @@ function App() {
 		},
 		{
 			id: 2,
-			title: 'Memento Mori',
-			isComplete: true,
+			title: 'Run a 5k',
+			isComplete: false,
 			isEditing: false,
 		},
 		{
 			id: 3,
+			title: 'Order food',
+			isComplete: false,
+			isEditing: false,
+		},
+		{
+			id: 4,
 			title: 'Finish todo app',
 			isComplete: false,
 			isEditing: false,
@@ -35,12 +41,7 @@ function App() {
 				todos={todos}
 				setTodos={setTodos}
 			/>
-			<TodoList
-				todos={todos}
-				setTodos={setTodos}
-				input={input}
-				setInput={setInput}
-			/>
+			<TodoList todos={todos} setTodos={setTodos} />
 		</div>
 	);
 }

@@ -1,15 +1,18 @@
-import React from 'react';
+import { useState } from 'react';
 
 const TodoInput = ({ input, setInput, todos, setTodos }) => {
+	const [todoId, setTodoId] = useState(5);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
 		if (input.trim().length === 0) return;
 		setTodos([
 			...todos,
-			{ id: todos.length + 1, title: input, isCompleted: false },
+			{ id: todoId, title: input, isCompleted: false },
 		]);
 		setInput('');
+		setTodoId((prevId) => prevId + 1);
 	};
 	const handleInput = (e) => {
 		setInput(e.target.value);
