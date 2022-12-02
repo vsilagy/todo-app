@@ -110,8 +110,10 @@ const TodoList = ({ todos, setTodos, input, setInput }) => {
 					</p>
 				</div>
 			)}
-			<div className="flex items-center justify-between mx-4 p-4 text-veryDarkGrayishBlue dark:text-darkGrayishBlue bg-white dark:bg-veryDarkGrayishBlue  rounded-b shadow-lg text-sm">
-				<p className="px-2">{remainingTodos()} tasks left</p>
+			<div className="flex items-center justify-between flex-wrap gap-y-4 gap-x-1 mx-4 p-4 text-veryDarkGrayishBlue dark:text-darkGrayishBlue bg-white dark:bg-veryDarkGrayishBlue  rounded-b shadow-lg text-xs md:text-sm">
+				<p className="order-last sm:order-first">
+					{remainingTodos()} tasks left
+				</p>
 				<div className="flex gap-2">
 					<button
 						onClick={() => setFilter('all')}

@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import useLocalStorage from './hook/useLocalStorage';
 import Header from './components/Header';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 function App() {
 	const [input, setInput] = useState('');
-	const [todos, setTodos] = useState([
+	const [todos, setTodos] = useLocalStorage('local-todos', [
 		{
 			id: 1,
-			title: 'Buy coffee',
+			title: 'Make coffee',
 			isComplete: true,
 			isEditing: false,
 		},
@@ -24,6 +25,7 @@ function App() {
 			isEditing: false,
 		},
 	]);
+
 	return (
 		<div className="w-screen h-screen">
 			<Header />
