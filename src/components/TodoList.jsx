@@ -1,7 +1,8 @@
-import React from 'react';
-import { TfiClose } from 'react-icons/tfi';
+import { useState } from 'react';
+import close from '../assets/icon-cross.svg';
 
 const TodoList = ({ todos, setTodos, input, setInput }) => {
+	const [filter, setFilter] = useState('all');
 	const handleDelete = (id) => {
 		setTodos([...todos].filter((todo) => todo.id !== id));
 	};
@@ -40,12 +41,24 @@ const TodoList = ({ todos, setTodos, input, setInput }) => {
 	const remainingTodos = () => {
 		return todos.filter((todo) => !todo.isComplete).length;
 	};
-	console.log(remainingTodos());
+	const completedTodos = () => {
+		const completed = todos.filter((todo) => !todo.isComplete);
+		setTodos(completed);
+	};
+	const todosFiltered = (filter) => {
+		if (filter === 'all') {
+			return todos;
+		} else if (filter === 'active') {
+			return todos.filter((todo) => !todo.isComplete);
+		} else if (filter === 'completed') {
+			return todos.filter((todo) => todo.isComplete);
+		}
+	};
 	return (
 		<section className="container max-w-2xl mx-auto">
 			{todos.length > 0 ? (
 				<ul className="flex flex-col mx-4">
-					{todos.map((todo) => (
+					{todosFiltered(filter).map((todo) => (
 						<li
 							className="flex items-center justify-between p-4 first-of-type:rounded-t bg-white border-b border-veryLightGrayishBlue dark:bg-veryDarkGrayishBlue dark:border-darkGrayishBlue"
 							key={todo.id}>
@@ -54,7 +67,7 @@ const TodoList = ({ todos, setTodos, input, setInput }) => {
 									type="checkbox"
 									checked={todo.isComplete ? true : false}
 									onChange={() => handleComplete(todo.id)}
-									className="outline-none"
+									className=" focus:outline-none"
 								/>
 								{!todo.isEditing ? (
 									<p
@@ -77,18 +90,18 @@ const TodoList = ({ todos, setTodos, input, setInput }) => {
 										type="text"
 										defaultValue={todo.title}
 										autoFocus
-										className="px-1 bg-white dark:bg-veryDarkGrayishBlue w-full rounded outline-none ring-2 ring-veryDarkBlue dark:ring-veryLightGrayishBlue"
+										className="px-1 bg-white dark:bg-veryDarkGrayishBlue w-full rounded outline-none ring-2 ring-brightBlue dark:ring-veryLightGrayishBlue"
 									/>
 								)}
 							</div>
 							<button onClick={() => handleDelete(todo.id)}>
-								{<TfiClose />}
+								<img src={close} alt="delete todo" />
 							</button>
 						</li>
 					))}
 				</ul>
 			) : (
-				<div className="mx-4 p-4 text-center rounded-t bg-white dark:bg-veryDarkGrayishBlue">
+				<div className="relative mx-4 p-4 text-center rounded-t bg-white dark:bg-veryDarkGrayishBlue bg-[">
 					<h2 className="text-xl pt-8">
 						Your peace of mind is priceless
 					</h2>
@@ -97,10 +110,38 @@ const TodoList = ({ todos, setTodos, input, setInput }) => {
 					</p>
 				</div>
 			)}
-			<div className="mx-4">
-				<p className="p-4 rounded-b shadow-lg bg-white dark:bg-veryDarkGrayishBlue">
-					Remaining todos {remainingTodos()}
-				</p>
+			<div className="flex items-center justify-between mx-4 p-4 text-veryDarkGrayishBlue dark:text-darkGrayishBlue bg-white dark:bg-veryDarkGrayishBlue  rounded-b shadow-lg text-sm">
+				<p className="px-2">{remainingTodos()} tasks left</p>
+				<div className="flex gap-2">
+					<button
+						onClick={() => setFilter('all')}
+						className={
+							filter === 'all' ? 'text-brightBlue font-bold' : ''
+						}>
+						All
+					</button>
+					<button
+						onClick={() => setFilter('active')}
+						className={
+							filter === 'active' ? 'text-brightBlue font-bold' : ''
+						}>
+						Active
+					</button>
+					<button
+						onClick={() => setFilter('completed')}
+						className={
+							filter === 'completed'
+								? 'text-brightBlue font-bold'
+								: ''
+						}>
+						Completed
+					</button>
+				</div>
+				<button
+					onClick={() => completedTodos()}
+					className="active:text-brightBlue active:font-bold">
+					Clear Completed
+				</button>
 			</div>
 		</section>
 	);
