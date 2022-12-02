@@ -24,7 +24,7 @@ const TodoInput = ({ input, setInput, todos, setTodos }) => {
 					type="text"
 					name="text"
 					placeholder="Create a new todo..."
-					className=" w-full mx-4 p-4 text-lg rounded shadow-md placeholder:text-lightGrayishBlue placeholder:dark:text-darkGrayishBlue dark:bg-veryDarkGrayishBlue outline-none focus:ring-2 dark:ring-white ring-brightBlue"
+					className=" w-full mx-4 p-4 text-lg rounded shadow-md text-veryDarkBlue dark:text-veryLightGray placeholder:text-lightGrayishBlue placeholder:dark:text-darkGrayishBlue dark:bg-veryDarkGrayishBlue outline-none focus:ring-2 dark:ring-white ring-brightBlue"
 					value={input}
 					onChange={handleInput}
 				/>

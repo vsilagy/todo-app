@@ -29,7 +29,7 @@ const Header = () => {
 			/>
 			<header className="max-w-2xl mx-auto mt-16 mb-4">
 				<div className="flex justify-between mx-4">
-					<h1 className="text-4xl text-white font-bold tracking-widest uppercase dark:text-white">
+					<h1 className="text-4xl text-veryLightGray font-bold tracking-widest uppercase dark:text-white">
 						Todo
 					</h1>
 					<DarkModeSwitch

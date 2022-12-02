@@ -60,7 +60,7 @@ const TodoList = ({ todos, setTodos }) => {
 				<ul className="flex flex-col mx-4">
 					{todosFiltered(filter).map((todo) => (
 						<li
-							className="flex items-center justify-between p-4 first-of-type:rounded-t bg-white border-b border-veryLightGrayishBlue dark:bg-veryDarkGrayishBlue dark:border-darkGrayishBlue"
+							className="flex items-center justify-between p-4 first-of-type:rounded-t text-veryDarkBlue dark:text-veryLightGray bg-white border-b border-veryLightGrayishBlue dark:bg-veryDarkGrayishBlue dark:border-darkGrayishBlue"
 							key={todo.id}>
 							<div className="flex gap-4 w-full mr-4">
 								<input

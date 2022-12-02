@@ -1,39 +1,16 @@
 import { useState } from 'react';
 import useLocalStorage from './hook/useLocalStorage';
+import data from './assets/data';
 import Header from './components/Header';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
+import Footer from './components/Footer';
 function App() {
 	const [input, setInput] = useState('');
-	const [todos, setTodos] = useLocalStorage('local-todos', [
-		{
-			id: 1,
-			title: 'Make coffee',
-			isComplete: true,
-			isEditing: false,
-		},
-		{
-			id: 2,
-			title: 'Run a 5k',
-			isComplete: false,
-			isEditing: false,
-		},
-		{
-			id: 3,
-			title: 'Order food',
-			isComplete: false,
-			isEditing: false,
-		},
-		{
-			id: 4,
-			title: 'Finish todo app',
-			isComplete: false,
-			isEditing: false,
-		},
-	]);
+	const [todos, setTodos] = useLocalStorage('local-todos', data);
 
 	return (
-		<div className="w-screen h-screen">
+		<div className="w-screen h-screen flex flex-col overflow-hidden">
 			<Header />
 			<TodoInput
 				input={input}
@@ -42,6 +19,7 @@ function App() {
 				setTodos={setTodos}
 			/>
 			<TodoList todos={todos} setTodos={setTodos} />
+			<Footer />
 		</div>
 	);
 }
