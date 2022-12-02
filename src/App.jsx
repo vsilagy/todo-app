@@ -7,8 +7,18 @@ function App() {
 	const [todos, setTodos] = useState([
 		{
 			id: 1,
+			title: 'Buy coffee',
+			isComplete: true,
+		},
+		{
+			id: 2,
+			title: 'Memento Mori',
+			isComplete: true,
+		},
+		{
+			id: 3,
 			title: 'Finish todo app',
-			isCompleted: false,
+			isComplete: false,
 		},
 	]);
 	return (
@@ -20,7 +30,7 @@ function App() {
 				todos={todos}
 				setTodos={setTodos}
 			/>
-			<TodoList todos={todos} />
+			<TodoList todos={todos} setTodos={setTodos} />
 		</div>
 	);
 }
