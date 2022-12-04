@@ -19,7 +19,7 @@ const data = [
 	},
 	{
 		id: 4,
-		title: 'Buy Catch-22',
+		title: 'Read Catch-22',
 		isComplete: false,
 		isEditing: false,
 	},

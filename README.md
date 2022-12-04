@@ -4,6 +4,8 @@ A todo list built with React, Tailwind and Vite
 
 [Live Preview](https://todo-vs.netlify.app)
 
+![screenshot](./public/screenshot.png)
+
 ### Features
 
 - add and remove todos

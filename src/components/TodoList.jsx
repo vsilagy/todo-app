@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import close from '../assets/icon-cross.svg';
+import { GrClose } from 'react-icons/gr';
 
 const TodoList = ({ todos, setTodos }) => {
 	const [filter, setFilter] = useState('all');
@@ -94,7 +94,7 @@ const TodoList = ({ todos, setTodos }) => {
 								)}
 							</div>
 							<button onClick={() => handleDelete(todo.id)}>
-								<img src={close} alt="delete todo" />
+								<GrClose color="#161772" className="dark:invert" />
 							</button>
 						</li>
 					))}
